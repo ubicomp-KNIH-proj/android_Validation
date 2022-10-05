@@ -22,7 +22,8 @@ class Write_Csv(object):
         physio_id = Ae_Sensor
 
         csv_Folder_Root = "D:\KNIH_Val/S" + Ae_Name
-        val_Folder_Root = "D:\KNIH_Val/val/S" + Ae_Name
+        # val_Folder_Root = "D:\KNIH_Val/val/S" + Ae_Name
+        val_Folder_Root = "D:\KNIH_Val/val"
         csv_Root = "D:\KNIH_Val/S" + Ae_Name +"/" + Ae_Name +  "_"  + dt_string + "_" + physio_id + ".csv"
 
         try:
@@ -96,11 +97,12 @@ if __name__ == "__main__":
     sensors = ["mAcc", "mPre", "mLi", "mGyr", "wHR", "wPre", "wAcc", "wGyr"]
 
     # Ae_Name = input("Input [AE], EX) S618 => 618\n")  # User ID
-    Ae_Name = ["608", "609", "610", "611", "612"]
+    Ae_Name = ["608"]
 
-    term_day_8 = ["5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"]
-    term_day_9 = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"]
-    term_day_10 = ["1", "2", "3", "4"]
+
+    term_day_8 = ["5"]
+    term_day_9 = ["10"]
+    term_day_10 = ["1"]
 
     Start_Month_8 = "8"
     Start_Month_9 = "9"
@@ -123,6 +125,7 @@ if __name__ == "__main__":
                         main(Ae_Name, Ae_Sensor, Ae_device, Start_Day, Start_Month_8)
 
                     except Exception:
+                        print('ERROR')
                         pass
 
                     print("DONE\t" + Ae_Name + "\t" + Start_Month_8 + "\t" + Start_Day + "\t"+ sensor)
@@ -141,6 +144,7 @@ if __name__ == "__main__":
                         main(Ae_Name, Ae_Sensor, Ae_device, Start_Day, Start_Month_9)
 
                     except Exception:
+                        print('ERROR')
                         pass
 
                     print("DONE\t" + Ae_Name + "\t" + Start_Month_9 + "\t" + Start_Day + "\t"+ sensor)
@@ -159,6 +163,7 @@ if __name__ == "__main__":
                         main(Ae_Name, Ae_Sensor, Ae_device, Start_Day, Start_Month_10)
 
                     except Exception:
+                        print('ERROR')
                         pass
 
                     print("DONE\t" + Ae_Name + "\t" + Start_Month_10 + "\t" + Start_Day + "\t"+ sensor)
