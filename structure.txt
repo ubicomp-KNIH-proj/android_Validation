@@ -1,5 +1,5 @@
 KNIH_Val
-ㄴadditional_Data  여기에 유저로부터 직접 받은 tar 또는 zip 파일을 압축해제
+ㄴadditional_Data  "해당 폴더만 직접 생성 해 주어야 합니다!!!" 여기에 유저로부터 직접 받은 tar 또는 zip 파일을 압축해제
   ㄴ S001
     ㄴ 220920_Phone_Acc.csv  모든 압축 파일 선택 후 유저 네임 폴더 하나에 전부 압축 해제 하시면 됩니다
     ㄴ ...
