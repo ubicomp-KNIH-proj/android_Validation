@@ -28,7 +28,7 @@ def main(file_path_list, member):
                 if dep_date == des_date and dep_dev[0].lower() == des_dev and dep_sen[0] == des_sen[0]:     # 날짜, 디바이스, 센서 비교, 같다면
                     
                     f_dep = open(file, "r+", encoding='UTF-8')      # 읽기 전용으로 출발지 파일 열기
-                    line = f_dep.read().replace(",\"\n\"", "")
+                    line = f_dep.read().replace(",\"\n\"", "")      # 이상치 제거하기
                     
                     f_dep.close()
                     f_dep_temp = open(file, "w", encoding='UTF-8')     
@@ -36,7 +36,7 @@ def main(file_path_list, member):
                     
                     f_dep_temp.close()
 
-                    f_dep = open(file, "r+", encoding='UTF-8')      # 읽기 전용으로 출발지 파일 열기
+                    f_dep = open(file, "r+", encoding='UTF-8')      
                     reader = csv.reader(f_dep)
 
                     f_des = open(destination_path+ '\\' + dest_file, "a")
