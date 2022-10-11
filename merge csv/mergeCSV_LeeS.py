@@ -63,10 +63,11 @@ def searchDesFile(dir):
         return files
 
 if __name__ == "__main__":
-    # kkt_path = DEPARTURE_PATH
-    dep_path_list = []
-    file_path_list = searchFile(DEPARTURE_PATH + '\\' + MEMBERS)
-    print(file_path_list)
+    
+    dep_path_list = DEPARTURE_PATH
     for member in MEMBERS:
+        file_path_list = searchFile(DEPARTURE_PATH + '\\' + "S" + member)
+        print(member)
+        print(file_path_list)
         main(file_path_list, member)
         print(f"DONE. {member}")
