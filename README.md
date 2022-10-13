@@ -15,5 +15,5 @@
 1. Download data from user
 2. Read [structure.txt] file and set folder path
 3. Processing_Main_1005.py
-4. sumCSV.py
+4. mergeCSV.py
 4. csv_to_df_val_1005.ipynb
