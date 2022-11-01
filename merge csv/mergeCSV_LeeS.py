@@ -3,18 +3,17 @@ import os
 import glob
 
 DEPARTURE_PATH = ".\\additional_Data"
-DESTINATION_PATH = "."
-# MEMBERS = ["608","609","610","611","612","619","620","621","622","623","624","625","637","630","631","643","644","645","601","602","650","651","652","653"]
-MEMBERS = ["608","609","610","611","612","619","620","621","622","623","624","630","631","643","644","650","651","652","653"]
-# MEMBERS = ["601","602","608","609","610","611","612","619","620","621","622","623","624","625","630","631","637","643","644","645","650","651","652","653"]
+DESTINATION_PATH = ".\\"
 
+MEMBERS = ["601","602","603","604","605","606","607","608","609","610","611","612","613","614","615","616","617","618","619","620","621","622","623","624","625","626","627","628","629","630","631","632","633","634","635","636","637","638","639","640","641","642","643","644","645","646","647","648","649","650","651","652","653","654","655","656"]
 
 def main(file_path_list, member):
     for file in file_path_list:                                                 # 모든 DEPARTURE_PATH밑의 파일 리스트
         splited_file_path = file.split('\\')
         file_owner = splited_file_path[2]                                       # S606
-        core_path = splited_file_path[3]                                        # KNIH_221003
+        core_path = splited_file_path[4]                                        # KNIH_221003
         core_path = core_path.split('.')[0].split('_')                          # [YYMMDD, Phone, Acc]
+        print(core_path)
         dep_date = core_path[0][2:]; dep_dev = core_path[1]; dep_sen = core_path[2] # MMDD, Phone, Acc
 
         if dep_dev == "Phone":
@@ -67,7 +66,7 @@ if __name__ == "__main__":
     dep_path_list = DEPARTURE_PATH
     for member in MEMBERS:
         file_path_list = searchFile(DEPARTURE_PATH + '\\' + "S" + member)
-        print(member)
-        print(file_path_list)
+        # print(member)
+        # print(file_path_list)
         main(file_path_list, member)
         print(f"DONE. {member}")
