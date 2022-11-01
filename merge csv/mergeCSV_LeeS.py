@@ -12,9 +12,10 @@ def main(file_path_list, member):
         splited_file_path = file.split('\\')
         file_owner = splited_file_path[2]                                       # S606
         core_path = splited_file_path[4]                                        # KNIH_221003
-        core_path = core_path.split('.')[0].split('_')                          # [YYMMDD, Phone, Acc]
-        print(core_path)
+        core_path = core_path.split('.')[0].split('_')  
+        # print(core_path)                        # [YYMMDD, Phone, Acc]
         dep_date = core_path[0][2:]; dep_dev = core_path[1]; dep_sen = core_path[2] # MMDD, Phone, Acc
+        
 
         if dep_dev == "Phone":
             dep_dev = "Mobile"
@@ -22,6 +23,8 @@ def main(file_path_list, member):
         if member == file_owner:                                                # Sxxx == S607
             destination_path = DESTINATION_PATH + '\\' + member                 # .\\S607
             dest_list = searchDesFile(destination_path)                         #./S607밑의 모든 파일 리스트    
+            # print(dest_list)
+            # print(DESTINATION_PATH)
 
             for dest_file in dest_list:                                                 # 목적지 폴더에서 일치하는 파일 찾기   
                 des_splist_path = dest_file.split('_')                                  # [S606, MMDD, mAcc]      
@@ -42,7 +45,7 @@ def main(file_path_list, member):
                     writer = csv.writer(f_des)
 
                     for row in reader:
-                        print(row)
+                        # print(row)
                         for i in range(len(row)):
                             row[i] = str(row[i])
                             if row[i] == '\n':
@@ -65,7 +68,8 @@ if __name__ == "__main__":
     
     dep_path_list = DEPARTURE_PATH
     for member in MEMBERS:
-        file_path_list = searchFile(DEPARTURE_PATH + '\\' + "S" + member)
+        member = "S" + member
+        file_path_list = searchFile(DEPARTURE_PATH + '\\' + member)
         # print(member)
         # print(file_path_list)
         main(file_path_list, member)
