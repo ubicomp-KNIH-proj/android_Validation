@@ -1,3 +1,5 @@
+# 센서 별 모든 csv들을 하나의 csv로 만들기
+
 import pandas as pd
 from glob import glob
 
