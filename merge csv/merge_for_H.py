@@ -72,3 +72,20 @@ for member in MEMBERS:
     print("[Done]\t" + member)
 
 print("[Mission Complete]")
+
+all_merge_saveFATH = "./all_merged/all.csv"
+all_merge_targetFATH = "./merged/*.csv"
+all_merge_csv_list = glob.glob(all_merge_targetFATH)
+
+# 파일 Union 선언
+df = pd.DataFrame()
+for f in range(0, len(all_merge_csv_list)):
+    temp_df = pd.read_csv(all_merge_csv_list[f])
+    df = df.append(temp_df, ignore_index=True)
+
+# 파일저장
+df.to_csv(path_or_buf=all_merge_saveFATH,
+            sep=",",
+            na_rep="0",
+            float_format="%.2f",  # 2 decimal places
+            index=False)  # do not write index
