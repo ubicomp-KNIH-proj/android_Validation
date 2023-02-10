@@ -15,18 +15,17 @@ MEMBERS = ["601", "602", "603", "604", "605", "606", "607", "608", "609", "610",
            "611", "612", "613", "614", "615", "616", "617", "618", "619", "620",
            "621", "622", "623", "624", "625", "627", "628", "629", "630", "631",
            "632", "633", "634", "635", "636", "637", "638", "639", "641", "643",
-           "644", "645", "650", "651", "652", "653"]
+           "644", "645", "650", "651", "652", "653", "660", "661", "663", "664",
+           "665"]
 
 
 for member in MEMBERS:
 
-    print("Start\t" + member)
-
     try:
         createFolder("./merged")
     
-        targetFATH = "./tasking/*/" + MEMBERS + ".csv"
-        saveFATH = "./merged/" + MEMBERS + ".csv"
+        targetFATH = "./tasking/*/" + member + ".csv"
+        saveFATH = "./merged/" + member + ".csv"
 
         # csv 리스트 받아오기
         csv_list = glob.glob(targetFATH)
@@ -46,7 +45,7 @@ for member in MEMBERS:
         df.replace(-1, 0, inplace=True)
 
         # 날짜 자릿수 변경
-        df = df.astype({"date": "int"})
+        df = df.astype({"date":"int"})
         df.loc[(df["date"] < 999) & (df["date"] > 800),
                "date"] = 20220000 + df["date"]
         df.loc[(df["date"] > 999) & (df["date"] < 1300),
@@ -54,7 +53,7 @@ for member in MEMBERS:
         df.loc[df["date"] < 800, "date"] = 20230000 + df["date"]
 
         # 컬럼 변경
-        df["user_id"] = "S" + MEMBERS
+        df["user_id"] = "S" + member
         df = df[["date", "user_id", "All", "mAcc", "mGyr",
                  "mPre", "mLi", "wAcc", "wGyr", "wPre", "wHR"]]
         df = df.rename(columns={"All": "minimum_per"})
@@ -65,8 +64,11 @@ for member in MEMBERS:
                   na_rep="0",
                   float_format="%.2f",  # 2 decimal places
                   index=False)  # do not write index
-    except Exception:
-        print("[Error]\t" + Exception)
+
+    except Exception as e:
+        print("[ERROR]\t"+member, e)
         pass
 
-print("[DONE]")
+    print("[Done]\t" + member)
+
+print("[Mission Complete]")
