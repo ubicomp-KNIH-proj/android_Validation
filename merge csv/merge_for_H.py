@@ -69,4 +69,4 @@ for member in MEMBERS:
         print("[Error]\t" + Exception)
         pass
 
-print("[DONE[]")
+print("[DONE]")
